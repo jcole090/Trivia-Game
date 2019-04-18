@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Trivia Game</title>
+
+<meta charset="UTF-8">
+<link rel="Stylesheet/css" src="/Users/jaredcole-lewis/Desktop/Trivia Game.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="/Users/jaredcole-lewis/Desktop/Trivia Game.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+      <h1 class="display-4">Music Trivia Game</h1>
+      <p class="lead">Let's see how much you realy know about Music (answers all lower case)</p>
+      </div>
+      <div class="col-sm-6">
+     <img src="https://media.giphy.com/media/r0XKA03tGOrGU/giphy.gif" style="margin-bottom: 25px">
+          </div>
+      <div class="col-sm-2">
+            <h1 id="timer"></h1>
+
+    </div>
+  </div>
+</div>
+
+
+</head>
+<body>
+
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="row">1.Making my way downtown walking fast faces pass and im home bound? <input type="text" id="A1" style="margin-left: 206px"> </div> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">2.Quarter brick, Half a brick, Whole brick? <input type="text" id="A2" style="margin-left: 446px"> </th>
+          </tr>
+          <tr>
+            <th scope="row">3. What year is Rueben Studdard sorry for? <input type="text" id="A3" style="margin-left: 437px"> </th>
+          </tr>
+          <tr>
+            <th scope="row">4. Kiesha Cole should'nt have cheated (True) or (False)? <input type="text" id="A4" style="margin-left: 329px"></th>
+          </tr>
+          <tr>
+            <th scope="row">5. How many little birds were on Bob Marleys Doorstep? <input type="text" id="A5" style="margin-left: 339px"></th>
+          </tr>
+          <tr>
+            <th scope="row">6. If yor mind is telling you no but your body is telling you yes you should probably listen to? <input type="text" id="A6" style="margin-left:65px"></th>
+          </tr>
+          <tr>
+            <th scope="row">7. We will We Will? <input type="text" id="A7" style="margin-left: 629px"></th>
+          </tr>
+          <tr>
+            <th scope="row">8. Add another dot. Bop a Dot Dot? <input type="text" id="A8" style="margin-left: 500px"></th>
+          </tr>
+      </table>
+
+
+<div class="submit button">
+   <button type="button" class="btn btn-secondary btn-lg btn-block" id="Sbutton">submit</button>
+</div>
+<script>
+
+function convertSeconds(sec) {
+var min = Math.floor(sec / 60);
+var sec = sec % 60;
+return numberFunction(min, 2) + ":" + numberFunction(sec, 2);
+}
+
+var counter = 0;
+var timeLeft = 180;
+function start() {
+$("#timer").text("1000");
+$("#timer").text(convertSeconds(timeLeft - counter));
+
+function timeIt() {
+counter++
+$("#timer").text(convertSeconds(timeLeft - counter));
+
+}
+setInterval(timeIt, 1000);
+
+}
+start();
+
+
+$("#Sbutton").on("click", function(event) {
+event.preventDefault();
+
+var correctCounter = 0;
+
+var questions = ["1. Making my way downtown walking fast faces pass and im home bound?", "2. Quarter brick, Half a brick, Whole brick ?", "3. What year is Rueben Studdard sorry for ?", "4. Kiesha Cole should'nt have cheated (t or f)?", "5. How many little birds were beside Bob Marleys doorstep?", "6. If your mind is is telling You no, but your body is telling you yes. You should probably listen to?", "7. We Will We Will?", "8. Add another dot. Bop a Dot Dot?"]        
+
+var A1 = $("#A1").val().trim()
+var A2 = $("#A2").val().trim()
+var A3 = $("#A3").val().trim()
+var A4 = $("#A4").val().trim()
+var A5 = $("#A5").val().trim()
+var A6 = $("#A6").val().trim()
+var A7 = $("#A7").val().trim()
+var A8 = $("#A8").val().trim()
+
+
+var answers = ["do do do do do do do", "aye", "2004", "false", "3", "your mind", "rock you","bop a dot dot doe"]
+
+
+if (A1 == answers[0]) {
+console.log("correct");
+correctCounter = correctCounter + 1};
+
+if (A2 == answers[1]) {
+console.log("correct");
+correctCounter = correctCounter + 1};
+
+if (A3 == answers[2]) {
+console.log("correct");
+correctCounter = correctCounter + 1};
+
+if (A4 == answers[3]) {
+console.log("correct");
+correctCounter = correctCounter + 1};
+
+if (A5 == answers[4]) {
+console.log("correct");
+correctCounter = correctCounter + 1};
+
+if (A6 == answers[5]) {
+console.log("correct");
+correctCounter = correctCounter + 1};
+
+if (A7 == answers[6]) {
+console.log("correct");
+correctCounter = correctCounter + 1};
+
+if (A8 == answers[7]) {
+console.log("correct");
+correctCounter = correctCounter + 1};
+
+alert("You got " + correctCounter + "/8");
+
+
+
+
+
+
+});
+</script>
+</body>
+</html>
